@@ -153,17 +153,14 @@ Não expõe dados sensíveis.
 
 ## 📂 Estrutura do Repositório
 
-assessor-pericial-dgpm-406/  
-├─ README.md  
-├─ prompts/  
-│  ├─ prompt-final.md  
-│  ├─ prompt-final.txt  
-│  └─ changelog.md  
-├─ docs/  
-│  ├─ arquitetura.md  
-│  └─ uso-rapido.md  
-├─ LICENSE  
-└─ .gitattributes  
+assessor-pericial-dgpm-406/
+├─ README.md
+├─ prompts/
+│ ├─ prompt-final.md
+│ └─ prompt-final.txt
+└─ docs/
+├─ arquitetura.md
+└─ uso-rapido.md
 
 ---
 
