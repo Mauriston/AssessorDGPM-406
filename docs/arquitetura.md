@@ -399,7 +399,6 @@ Antes de responder, o Gem deve conseguir marcar:
 
 - `README.md`: visão geral + diagrama + como usar  
 - `docs/arquitetura.md`: este documento (explicação detalhada)  
-- `docs/uso-rapido.md`: guia curto com exemplos práticos  
 - `prompts/prompt-final.md`: prompt formatado para leitura  
 - `prompts/prompt-final.txt`: prompt “copiar/colar” sem ruídos
 
