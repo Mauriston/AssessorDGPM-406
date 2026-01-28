@@ -1,4 +1,3 @@
-````markdown
 # 🩺 Assessor Pericial DGPM-406  
 ### Gem Normativo Médico-Pericial para a Marinha do Brasil
 
@@ -36,60 +35,58 @@ Fornecer um **prompt de produção** capaz de:
 
 Abaixo está a **visualização arquitetural do prompt**, representando o fluxo de decisão e geração de respostas.
 
-### 🔎 Diagrama (ASCII)
+### 🔎 Diagrama Arquitetural (ASCII)
 
-```text
-┌───────────────────────────────┐
-│        ENTRADA DO USUÁRIO     │
-│  (Pergunta / Dados / PDFs)   │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  CLASSIFICAÇÃO OBRIGATÓRIA    │
-│  - Fonte Normativa            │
-│  - Dado do Caso               │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  ROTEADOR DE INTENÇÃO         │
-│  (MSG IS / CAN / FALTA / Q&A) │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  CAMADA NORMATIVA (RAG)       │
-│  Nível 1: DGPM-406 + Anexos   │
-│  Nível 2: Busca Controlada    │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  SUBSUNÇÃO ESTRITA            │
-│  FATO → CRITÉRIO → CONCLUSÃO  │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  MEMÓRIA LONGA DE PADRÕES     │
-│  (Consistência Intertemporal) │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  GERADOR DE SAÍDA CONTROLADA  │
-│  - RAW                        │
-│  - NORMATIVO                  │
-│  - PASSO-A-PASSO              │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│  SAÍDA AUDITÁVEL              │
-│  (Blocos Markdown Copiáveis)  │
-└───────────────────────────────┘
-````
+┌───────────────────────────────┐  
+│        ENTRADA DO USUÁRIO     │  
+│  (Pergunta / Dados / PDFs)   │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  CLASSIFICAÇÃO OBRIGATÓRIA    │  
+│  - Fonte Normativa            │  
+│  - Dado do Caso               │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  ROTEADOR DE INTENÇÃO         │  
+│  (MSG IS / CAN / FALTA / Q&A) │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  CAMADA NORMATIVA (RAG)       │  
+│  Nível 1: DGPM-406 + Anexos   │  
+│  Nível 2: Busca Controlada    │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  SUBSUNÇÃO ESTRITA            │  
+│  FATO → CRITÉRIO → CONCLUSÃO  │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  MEMÓRIA LONGA DE PADRÕES     │  
+│  (Consistência Intertemporal) │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  GERADOR DE SAÍDA CONTROLADA  │  
+│  - RAW                        │  
+│  - NORMATIVO                  │  
+│  - PASSO-A-PASSO              │  
+└───────────────┬──────────────┘  
+                │  
+                ▼  
+┌───────────────────────────────┐  
+│  SAÍDA AUDITÁVEL              │  
+│  (Blocos Markdown Copiáveis)  │  
+└───────────────────────────────┘  
 
 ---
 
@@ -99,18 +96,18 @@ Abaixo está a **visualização arquitetural do prompt**, representando o fluxo 
 
 Toda entrada é **obrigatoriamente classificada** como:
 
-* **Fonte Normativa** (RAG ou Busca Controlada);
-* **Dado do Caso** (laudos, exames, CSV, CIDs).
+- **Fonte Normativa** (RAG ou Busca Controlada);  
+- **Dado do Caso** (laudos, exames, CSV, CIDs).
 
-📌 **Regra de ouro:** Dados do caso **nunca** são tratados como norma.
+**Regra de ouro:** Dados do caso **nunca** são tratados como norma.
 
 ---
 
 ### 2️⃣ RAG Hierárquico
 
-* **Nível 1 (prioritário):** DGPM-406 (9ª Rev) + anexos;
-* **Nível 2 (exceção):** Leis/Portarias listadas nos itens 1.5.a–f da DGPM-406;
-* Busca externa **somente** quando explicitamente autorizada.
+- **Nível 1 (prioritário):** DGPM-406 (9ª Rev) + anexos;  
+- **Nível 2 (exceção):** Leis/Portarias listadas nos itens 1.5.a–f da DGPM-406;  
+- Busca externa **somente** quando explicitamente autorizada.
 
 ---
 
@@ -118,13 +115,13 @@ Toda entrada é **obrigatoriamente classificada** como:
 
 Modelo obrigatório:
 
-> **FATO DO CASO → CRITÉRIO NORMATIVO (citado) → CONCLUSÃO**
+FATO DO CASO → CRITÉRIO NORMATIVO (citado) → CONCLUSÃO
 
 É proibido:
 
-* Criar critérios;
-* Inferir lacunas;
-* “Ajudar” a norma.
+- Criar critérios;  
+- Inferir lacunas;  
+- “Ajudar” a norma.
 
 ---
 
@@ -132,74 +129,70 @@ Modelo obrigatório:
 
 O Gem mantém **consistência técnica e linguística** entre inspeções semelhantes, observando:
 
-* CID / Grupo nosológico;
-* Finalidade da IS;
-* Situação funcional;
-* Dispositivos normativos aplicados.
+- CID / Grupo nosológico;  
+- Finalidade da IS;  
+- Situação funcional;  
+- Dispositivos normativos aplicados.
 
-⚠️ Não cria precedente jurídico.
-⚠️ Não expõe dados sensíveis.
+Não cria precedente jurídico.  
+Não expõe dados sensíveis.
 
 ---
 
 ### 5️⃣ Controle de Saída (Auditabilidade)
 
-* **Texto reutilizável** → sempre em **blocos de código Markdown**;
-* IS:
-
-  * 3 blocos (sem anexo);
-  * 4 blocos (com PDF anexado);
-* ENTREVISTA e EXAME CLÍNICO:
-
-  * listas com travessões;
-  * pontuação padronizada (`;`, `; e`, `.`).
+- Texto reutilizável → sempre em **blocos de código Markdown**;  
+- IS:
+  - 3 blocos (sem anexo);  
+  - 4 blocos (com PDF anexado);  
+- ENTREVISTA e EXAME CLÍNICO:
+  - listas com travessões;  
+  - pontuação padronizada (;, ; e, .).
 
 ---
 
-## 📂 Estrutura do Repositório (Sugerida)
+## 📂 Estrutura do Repositório
 
-```text
-assessor-pericial-dgpm-406/
-├─ README.md                 ← este arquivo
-├─ prompts/
-│  ├─ prompt-final.md        ← versão legível (Markdown)
-│  ├─ prompt-final.txt       ← versão copiar/colar
-│  └─ changelog.md           ← histórico de versões
-├─ docs/
-│  ├─ arquitetura.md         ← explicação detalhada da arquitetura
-│  └─ uso-rapido.md          ← guia prático de uso
-├─ LICENSE
-└─ .gitattributes
-```
+assessor-pericial-dgpm-406/  
+├─ README.md  
+├─ prompts/  
+│  ├─ prompt-final.md  
+│  ├─ prompt-final.txt  
+│  └─ changelog.md  
+├─ docs/  
+│  ├─ arquitetura.md  
+│  └─ uso-rapido.md  
+├─ LICENSE  
+└─ .gitattributes  
 
 ---
 
 ## 🚀 Como Usar
 
-1. Abra `prompts/prompt-final.txt`;
-2. Copie **todo o conteúdo**;
-3. Cole no campo **Instructions** do GPT/Gem;
+1. Abra `prompts/prompt-final.txt`;  
+2. Copie **todo o conteúdo**;  
+3. Cole no campo **Instructions** do GPT/Gem;  
 4. Salve e utilize normalmente.
 
-➡️ Para revisão técnica, prefira `prompt-final.md`.
+Para revisão técnica, prefira `prompt-final.md`.
 
 ---
 
 ## 🔐 Privacidade e Segurança
 
-* Nunca insira dados reais identificáveis em exemplos;
-* Dados reais fornecidos pelo usuário devem ser **mascarados quando possível**;
-* PDFs anexados são tratados como **DADOS DO CASO**, nunca como norma.
+- Nunca insira dados reais identificáveis em exemplos;  
+- Dados reais fornecidos pelo usuário devem ser **mascarados quando possível**;  
+- PDFs anexados são tratados como **DADOS DO CASO**, nunca como norma.
 
 ---
 
 ## 📜 Licença e Aviso Legal
 
-Este repositório contém **engenharia de prompt**, não substitui:
+Este repositório contém **engenharia de prompt** e não substitui:
 
-* a leitura direta das normas;
-* o julgamento médico-pericial humano;
-* a autoridade administrativa formal.
+- a leitura direta das normas;  
+- o julgamento médico-pericial humano;  
+- a autoridade administrativa formal.
 
 Uso sob responsabilidade do operador.
 
@@ -209,10 +202,7 @@ Uso sob responsabilidade do operador.
 
 Projeto concebido para uso profissional em **atividade médico-pericial militar**, com foco em:
 
-* segurança jurídica;
-* padronização;
-* auditabilidade;
-* engenharia avançada de prompts normativos.
-
-```
-```
+- segurança jurídica;  
+- padronização;  
+- auditabilidade;  
+- engenharia avançada de prompts normativos.
