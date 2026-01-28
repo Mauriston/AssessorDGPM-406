@@ -88,6 +88,7 @@ Abaixo está a **arquitetura arquitetural do prompt**, representando o fluxo de 
 │  SAÍDA AUDITÁVEL              │
 │  (Blocos Markdown Copiáveis)  │
 └───────────────────────────────┘
+```
 🧩 Componentes da Arquitetura
 1️⃣ Classificação de Entradas
 Toda entrada é obrigatoriamente classificada como:
