@@ -152,16 +152,19 @@ Não expõe dados sensíveis.
 ---
 
 ## 📂 Estrutura do Repositório
-
+```text
 assessor-pericial-dgpm-406/
-├─ README.md
+├─ README.md                 ← este arquivo
 ├─ prompts/
-│ ├─ prompt-final.md
-│ └─ prompt-final.txt
-└─ docs/
-├─ arquitetura.md
-└─ uso-rapido.md
-
+│  ├─ prompt-final.md        ← versão legível (Markdown)
+│  ├─ prompt-final.txt       ← versão copiar/colar
+│  └─ changelog.md           ← histórico de versões
+├─ docs/
+│  ├─ arquitetura.md         ← explicação detalhada da arquitetura
+│  └─ uso-rapido.md          ← guia prático de uso
+├─ LICENSE
+└─ .gitattributes
+```
 ---
 
 ## 🚀 Como Usar
