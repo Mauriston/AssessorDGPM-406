@@ -160,7 +160,6 @@ assessor-pericial-dgpm-406/
 │  ├─ prompt-final.txt       ← versão copiar/colar
 ├─ docs/
 │  ├─ arquitetura.md         ← explicação detalhada da arquitetura
-│  └─ uso-rapido.md          ← guia prático de uso
 ```
 ---
 
