@@ -1,3 +1,4 @@
+````markdown
 # 🩺 Assessor Pericial DGPM-406  
 ### Gem Normativo Médico-Pericial para a Marinha do Brasil
 
@@ -11,31 +12,31 @@ O Gem foi concebido para uso por **Presidentes de Juntas de Saúde**, médicos p
 
 Fornecer um **prompt de produção** capaz de:
 
-- Assessorar decisões médico-periciais com **base textual obrigatória**  
-- Redigir **Inspeções de Saúde (IS)**, laudos e minutas administrativas **auditáveis**  
-- Evitar inferências clínicas ou normativas não autorizadas  
-- Operar com **RAG hierárquico**, memória longa de padrões e controle rigoroso de saída  
-- Ser **versionável, revisável e reutilizável** em ambientes profissionais
+- Assessorar decisões médico-periciais com **base textual obrigatória**;  
+- Redigir **Inspeções de Saúde (IS)**, laudos e minutas administrativas **auditáveis**;  
+- Evitar inferências clínicas ou normativas não autorizadas;  
+- Operar com **RAG hierárquico**, memória longa de padrões e controle rigoroso de saída;  
+- Ser **versionável, revisável e reutilizável** em ambientes profissionais.
 
 ---
 
 ## 🧠 Conceitos-Chave Incorporados
 
-- **RAG hierárquico normativo**
-- **Quote-first condicional por modo**
-- **Subsunção normativa estrita**
-- **Separação absoluta entre FATO e NORMA**
-- **Templates operacionais auditáveis**
-- **Memória longa de consistência pericial**
-- **Controle de formato (blocos de código para cópia)**
+- RAG hierárquico normativo;  
+- Quote-first condicional por modo;  
+- Subsunção normativa estrita;  
+- Separação absoluta entre FATO e NORMA;  
+- Templates operacionais auditáveis;  
+- Memória longa de consistência pericial;  
+- Controle de formato (blocos de código para cópia).
 
 ---
 
 ## 🏗️ Arquitetura Lógica do Gem
 
-Abaixo está a **arquitetura arquitetural do prompt**, representando o fluxo de decisão e geração de respostas.
+Abaixo está a **visualização arquitetural do prompt**, representando o fluxo de decisão e geração de respostas.
 
-### 🔎 Visão Geral
+### 🔎 Diagrama (ASCII)
 
 ```text
 ┌───────────────────────────────┐
@@ -88,67 +89,76 @@ Abaixo está a **arquitetura arquitetural do prompt**, representando o fluxo de 
 │  SAÍDA AUDITÁVEL              │
 │  (Blocos Markdown Copiáveis)  │
 └───────────────────────────────┘
-```
-🧩 Componentes da Arquitetura
-1️⃣ Classificação de Entradas
-Toda entrada é obrigatoriamente classificada como:
+````
 
-Fonte Normativa (RAG ou Busca Controlada)
+---
 
-Dado do Caso (laudos, exames, CSV, CIDs)
+## 🧩 Componentes da Arquitetura
 
-➡️ Dados do caso nunca são tratados como norma.
+### 1️⃣ Classificação de Entradas
 
-2️⃣ RAG Hierárquico
-Nível 1 (prioritário): DGPM-406 (9ª Rev) + anexos
+Toda entrada é **obrigatoriamente classificada** como:
 
-Nível 2 (exceção): Leis/Portarias listadas nos itens 1.5.a–f da DGPM-406
+* **Fonte Normativa** (RAG ou Busca Controlada);
+* **Dado do Caso** (laudos, exames, CSV, CIDs).
 
-Busca externa somente quando explicitamente autorizada
+📌 **Regra de ouro:** Dados do caso **nunca** são tratados como norma.
 
-3️⃣ Subsunção Normativa Estrita
+---
+
+### 2️⃣ RAG Hierárquico
+
+* **Nível 1 (prioritário):** DGPM-406 (9ª Rev) + anexos;
+* **Nível 2 (exceção):** Leis/Portarias listadas nos itens 1.5.a–f da DGPM-406;
+* Busca externa **somente** quando explicitamente autorizada.
+
+---
+
+### 3️⃣ Subsunção Normativa Estrita
+
 Modelo obrigatório:
 
-FATO DO CASO → CRITÉRIO NORMATIVO (citado) → CONCLUSÃO
+> **FATO DO CASO → CRITÉRIO NORMATIVO (citado) → CONCLUSÃO**
 
 É proibido:
 
-Criar critérios
+* Criar critérios;
+* Inferir lacunas;
+* “Ajudar” a norma.
 
-Inferir lacunas
+---
 
-“Ajudar” a norma
+### 4️⃣ Memória Longa de Padrões
 
-4️⃣ Memória Longa de Padrões
-O Gem mantém consistência técnica e linguística entre inspeções semelhantes, observando:
+O Gem mantém **consistência técnica e linguística** entre inspeções semelhantes, observando:
 
-CID / Grupo nosológico
-
-Finalidade da IS
-
-Situação funcional
-
-Dispositivos normativos aplicados
+* CID / Grupo nosológico;
+* Finalidade da IS;
+* Situação funcional;
+* Dispositivos normativos aplicados.
 
 ⚠️ Não cria precedente jurídico.
 ⚠️ Não expõe dados sensíveis.
 
-5️⃣ Controle de Saída (Auditabilidade)
-Texto reutilizável → sempre em blocos de código Markdown
+---
 
-IS:
+### 5️⃣ Controle de Saída (Auditabilidade)
 
-3 blocos (sem anexo)
+* **Texto reutilizável** → sempre em **blocos de código Markdown**;
+* IS:
 
-4 blocos (com PDF anexado)
+  * 3 blocos (sem anexo);
+  * 4 blocos (com PDF anexado);
+* ENTREVISTA e EXAME CLÍNICO:
 
-ENTREVISTA e EXAME CLÍNICO:
+  * listas com travessões;
+  * pontuação padronizada (`;`, `; e`, `.`).
 
-listas com travessões
+---
 
-pontuação padronizada (;, ; e, .)
+## 📂 Estrutura do Repositório (Sugerida)
 
-📂 Estrutura do Repositório
+```text
 assessor-pericial-dgpm-406/
 ├─ README.md                 ← este arquivo
 ├─ prompts/
@@ -160,51 +170,49 @@ assessor-pericial-dgpm-406/
 │  └─ uso-rapido.md          ← guia prático de uso
 ├─ LICENSE
 └─ .gitattributes
-🚀 Como Usar
-Abra prompts/prompt-final.txt
-
-Copie todo o conteúdo
-
-Cole no campo Instructions do GPT/Gem
-
-Salve e utilize normalmente
-
-➡️ Para revisão técnica, prefira prompt-final.md.
-
-🔐 Privacidade e Segurança
-Nunca insira dados reais identificáveis em exemplos
-
-Dados reais fornecidos pelo usuário devem ser mascarados quando possível
-
-PDFs anexados são tratados como DADOS DO CASO, nunca como norma
-
-📜 Licença e Aviso Legal
-Este repositório contém engenharia de prompt, não substitui:
-
-a leitura direta das normas;
-
-o julgamento médico-pericial humano;
-
-a autoridade administrativa formal.
-
-Uso sob responsabilidade do operador.
-
-✍️ Autor
-Projeto concebido para uso profissional em atividade médico-pericial militar, com foco em:
-
-segurança jurídica,
-
-padronização,
-
-auditabilidade,
-
-engenharia avançada de prompts normativos.
-
+```
 
 ---
 
-Se quiser, no próximo passo eu posso:
+## 🚀 Como Usar
 
-- gerar o `docs/arquitetura.md` **expandindo ainda mais o diagrama**  
-- gerar um `uso-rapido.md` estilo *cheat sheet*  
-- ou adaptar esse README para **inglês acadêmico** (caso pense em paper ou portfólio).
+1. Abra `prompts/prompt-final.txt`;
+2. Copie **todo o conteúdo**;
+3. Cole no campo **Instructions** do GPT/Gem;
+4. Salve e utilize normalmente.
+
+➡️ Para revisão técnica, prefira `prompt-final.md`.
+
+---
+
+## 🔐 Privacidade e Segurança
+
+* Nunca insira dados reais identificáveis em exemplos;
+* Dados reais fornecidos pelo usuário devem ser **mascarados quando possível**;
+* PDFs anexados são tratados como **DADOS DO CASO**, nunca como norma.
+
+---
+
+## 📜 Licença e Aviso Legal
+
+Este repositório contém **engenharia de prompt**, não substitui:
+
+* a leitura direta das normas;
+* o julgamento médico-pericial humano;
+* a autoridade administrativa formal.
+
+Uso sob responsabilidade do operador.
+
+---
+
+## ✍️ Autor
+
+Projeto concebido para uso profissional em **atividade médico-pericial militar**, com foco em:
+
+* segurança jurídica;
+* padronização;
+* auditabilidade;
+* engenharia avançada de prompts normativos.
+
+```
+```
