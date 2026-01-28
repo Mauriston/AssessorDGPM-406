@@ -158,12 +158,9 @@ assessor-pericial-dgpm-406/
 ├─ prompts/
 │  ├─ prompt-final.md        ← versão legível (Markdown)
 │  ├─ prompt-final.txt       ← versão copiar/colar
-│  └─ changelog.md           ← histórico de versões
 ├─ docs/
 │  ├─ arquitetura.md         ← explicação detalhada da arquitetura
 │  └─ uso-rapido.md          ← guia prático de uso
-├─ LICENSE
-└─ .gitattributes
 ```
 ---
 
